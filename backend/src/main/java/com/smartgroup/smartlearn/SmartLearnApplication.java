@@ -1,12 +1,12 @@
-package com.devsuperior.dslearnbds;
+package com.smartgroup.smartlearn;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DslearnbdsApplication {
+public class SmartLearnApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DslearnbdsApplication.class, args);
+		SpringApplication.run(SmartLearnApplication.class, args);
 	}
 }

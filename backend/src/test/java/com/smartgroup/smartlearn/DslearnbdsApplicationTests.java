@@ -1,4 +1,4 @@
-package com.devsuperior.dslearnbds;
+package com.smartgroup.smartlearn;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
