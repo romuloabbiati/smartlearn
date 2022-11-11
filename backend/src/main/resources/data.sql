@@ -14,3 +14,6 @@ INSERT INTO tb_user_role (user_id, role_id) VALUES (3, 2);
 INSERT INTO tb_user_role (user_id, role_id) VALUES (3, 3);
 
 INSERT INTO tb_course (name, img_Uri, img_Gray_Uri) VALUES ('HTML Bootcamp', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnUx7nTmk9Ml-phMBdX4ocfUfU02OrDfK9pA&usqp=CAU', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHRPjQZJFbflhc6rq3V1VZO0pn7V-FX24KuQ&usqp=CAU');
+
+INSERT INTO tb_offer (edition, start_Moment, end_Moment, course_id) VALUES ('1.0', TIMESTAMP WITH TIME ZONE '2022-11-20T00:00:00Z', TIMESTAMP WITH TIME ZONE '2023-11-20T00:00:00Z', 1);
+INSERT INTO tb_offer (edition, start_Moment, end_Moment, course_id) VALUES ('2.0', TIMESTAMP WITH TIME ZONE '2022-12-20T00:00:00Z', TIMESTAMP WITH TIME ZONE '2023-12-20T00:00:00Z', 1);
