@@ -1,4 +1,4 @@
-package com.smartgroup.smartlearn.entities;
+package com.smartgroup.smartlearn.entities.enums;
 
 public enum ResourceType {
 	

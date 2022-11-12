@@ -21,3 +21,7 @@ INSERT INTO tb_offer (edition, start_Moment, end_Moment, course_id) VALUES ('2.0
 INSERT INTO tb_resource (title, description, position, img_Uri, type, offer_id) VALUES ('HTML Path', 'Course main path', 1, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnUx7nTmk9Ml-phMBdX4ocfUfU02OrDfK9pA&usqp=CAU', 1, 1);
 INSERT INTO tb_resource (title, description, position, img_Uri, type, offer_id) VALUES ('Forum', 'Place to ask your queries', 2, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnUx7nTmk9Ml-phMBdX4ocfUfU02OrDfK9pA&usqp=CAU', 2, 1);
 INSERT INTO tb_resource (title, description, position, img_Uri, type, offer_id) VALUES ('Lives', 'Exclusive lives to the class', 3, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnUx7nTmk9Ml-phMBdX4ocfUfU02OrDfK9pA&usqp=CAU', 0, 1);
+
+INSERT INTO tb_section (title, description, position, img_Uri, resource_id, prerequisite_id) VALUES ('Chapter 1', 'Introduction to this chapter', 1, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnUx7nTmk9Ml-phMBdX4ocfUfU02OrDfK9pA&usqp=CAU', 1, null);
+INSERT INTO tb_section (title, description, position, img_Uri, resource_id, prerequisite_id) VALUES ('Chapter 2', 'Continuation to this chapter', 2, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnUx7nTmk9Ml-phMBdX4ocfUfU02OrDfK9pA&usqp=CAU', 1, 1);
+INSERT INTO tb_section (title, description, position, img_Uri, resource_id, prerequisite_id) VALUES ('Chapter 3', 'Finishing off this chapter', 3, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnUx7nTmk9Ml-phMBdX4ocfUfU02OrDfK9pA&usqp=CAU', 1, 2);
