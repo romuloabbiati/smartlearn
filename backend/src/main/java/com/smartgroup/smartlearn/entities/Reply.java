@@ -2,9 +2,7 @@ package com.smartgroup.smartlearn.entities;
 
 import java.io.Serializable;
 import java.time.Instant;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -16,12 +14,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tb_topic")
-public class Topic implements Serializable {
+@Table(name = "tb_reply")
+public class Reply implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -29,51 +26,36 @@ public class Topic implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	private String title;
-	
 	@Column(columnDefinition = "TEXT")
 	private String body;
 	
 	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
 	private Instant moment;
 	
+	@ManyToMany
+	@JoinTable(name = "tb_reply_likes",
+			joinColumns = @JoinColumn(name = "reply_id"),
+			inverseJoinColumns = @JoinColumn(name = "user_id")
+	)
+	private Set<User> likes = new HashSet<>();
+	
 	@ManyToOne
 	@JoinColumn(name = "author_id")
 	private User author;
 	
-	@ManyToMany
-	@JoinTable(name = "tb_topic_likes",
-			joinColumns = @JoinColumn(name = "topic_id"),
-			inverseJoinColumns = @JoinColumn(name = "user_id"))
-	private Set<User> likes = new HashSet<>();
-	
 	@ManyToOne
-	@JoinColumn(name = "offer_id")
-	private Offer offer;
-	
-	@ManyToOne
-	@JoinColumn(name = "lesson_id")
-	private Lesson lesson;
-	
-	@ManyToOne
-	@JoinColumn(name = "reply_id")
-	private Reply answer;
-	
-	@OneToMany(mappedBy = "topic")
-	private List<Reply> replies = new ArrayList<>();
+	@JoinColumn(name = "topic_id")
+	private Topic topic;
 
-	public Topic() {}
+	public Reply() {}
 
-	public Topic(Long id, String title, String body, Instant moment, User author, Set<User> likes, Offer offer,
-			Lesson lesson) {
+	public Reply(Long id, String body, Instant moment, Set<User> likes, User author, Topic topic) {
 		this.id = id;
-		this.title = title;
 		this.body = body;
 		this.moment = moment;
-		this.author = author;
 		this.likes = likes;
-		this.offer = offer;
-		this.lesson = lesson;
+		this.author = author;
+		this.topic = topic;
 	}
 
 	public Long getId() {
@@ -82,14 +64,6 @@ public class Topic implements Serializable {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
 	}
 
 	public String getBody() {
@@ -108,14 +82,6 @@ public class Topic implements Serializable {
 		this.moment = moment;
 	}
 
-	public User getAuthor() {
-		return author;
-	}
-
-	public void setAuthor(User author) {
-		this.author = author;
-	}
-
 	public Set<User> getLikes() {
 		return likes;
 	}
@@ -124,32 +90,20 @@ public class Topic implements Serializable {
 		this.likes = likes;
 	}
 
-	public Offer getOffer() {
-		return offer;
+	public User getAuthor() {
+		return author;
 	}
 
-	public void setOffer(Offer offer) {
-		this.offer = offer;
+	public void setAuthor(User author) {
+		this.author = author;
 	}
 
-	public Lesson getLesson() {
-		return lesson;
+	public Topic getTopic() {
+		return topic;
 	}
 
-	public void setLesson(Lesson lesson) {
-		this.lesson = lesson;
-	}
-
-	public Reply getAnswer() {
-		return answer;
-	}
-
-	public void setAnswer(Reply answer) {
-		this.answer = answer;
-	}
-
-	public List<Reply> getReplies() {
-		return replies;
+	public void setTopic(Topic topic) {
+		this.topic = topic;
 	}
 
 	@Override
@@ -168,7 +122,7 @@ public class Topic implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Topic other = (Topic) obj;
+		Reply other = (Reply) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;

@@ -60,3 +60,8 @@ INSERT INTO tb_topic (title, body, moment, author_id, offer_id, lesson_id) VALUE
 
 INSERT INTO tb_topic_likes (topic_id, user_id) VALUES (1, 2);
 INSERT INTO tb_topic_likes (topic_id, user_id) VALUES (2, 1);
+
+INSERT INTO tb_reply (body, moment, topic_id, author_id) VALUES ('Try to restart your machine', TIMESTAMP WITH TIME ZONE '2022-11-22T19:00:00Z', 1, 2);
+INSERT INTO tb_reply (body, moment, topic_id, author_id) VALUES ('Tried that and it worked', TIMESTAMP WITH TIME ZONE '2022-11-22T20:00:00Z', 1, 1);
+
+INSERT INTO tb_reply_likes (reply_id, user_id) VALUES (1, 1);
