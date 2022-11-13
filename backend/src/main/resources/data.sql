@@ -43,3 +43,9 @@ INSERT INTO tb_task (id, description, question_Count, approval_Count, weight, du
 
 INSERT INTO tb_lessons_done (lesson_id, user_id, offer_id) VALUES (1, 1, 1);
 INSERT INTO tb_lessons_done (lesson_id, user_id, offer_id) VALUES (2, 1, 1);
+
+INSERT INTO tb_notification (text, moment, read, route, user_id) VALUES ('First feedback, not quite correct, please revise', TIMESTAMP WITH TIME ZONE '2022-11-20T17:00:00Z', true, '/offers/1/resource/1/sections/1', 1);
+INSERT INTO tb_notification (text, moment, read, route, user_id) VALUES ('Second feedback, not quite correct, please revise', TIMESTAMP WITH TIME ZONE '2022-11-21T17:00:00Z', true, '/offers/1/resource/1/sections/1', 1);
+INSERT INTO tb_notification (text, moment, read, route, user_id) VALUES ('Third feedback, not quite correct, please revise', TIMESTAMP WITH TIME ZONE '2022-11-22T17:00:00Z', true, '/offers/1/resource/1/sections/1', 1);
+
+INSERT INTO tb_deliver (uri, moment, status, feedback, correct_Count, lesson_id, user_id, offer_id) VALUES ('https://github.com/devsuperior/bds-dslearn', TIMESTAMP WITH TIME ZONE '2022-11-20T10:00:00Z', 0, null, null, 4, 1, 1);
