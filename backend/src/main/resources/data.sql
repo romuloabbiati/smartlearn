@@ -28,3 +28,18 @@ INSERT INTO tb_section (title, description, position, img_Uri, resource_id, prer
 
 INSERT INTO tb_enrollment (user_id, offer_id, enroll_Moment, refund_Moment, available, only_Update) VALUES (1, 1, TIMESTAMP WITH TIME ZONE '2022-11-20T10:00:00Z', null, true, false);
 INSERT INTO tb_enrollment (user_id, offer_id, enroll_Moment, refund_Moment, available, only_Update) VALUES (2, 1, TIMESTAMP WITH TIME ZONE '2022-11-20T11:00:00Z', null, true, false);
+
+INSERT INTO tb_lesson (title, position, section_id) VALUES ('Lecture 1', 1, 1);
+INSERT INTO tb_content (id, text_Content, video_Uri) VALUES (1, 'How to installs programs', 'https://www.youtube.com/watch?v=0_e9Egeyk2E');
+
+INSERT INTO tb_lesson (title, position, section_id) VALUES ('Lecture 2', 2, 1);
+INSERT INTO tb_content (id, text_Content, video_Uri) VALUES (2, 'Introduction to HTML part 1', 'https://www.youtube.com/watch?v=FYgIpVf9TBI');
+
+INSERT INTO tb_lesson (title, position, section_id) VALUES ('Lecture 3', 3, 1);
+INSERT INTO tb_content (id, text_Content, video_Uri) VALUES (3, 'Introduction to HTML part 2', 'https://www.youtube.com/watch?v=EsQ07Og1yFM');
+
+INSERT INTO tb_lesson (title, position, section_id) VALUES ('Exercise', 4, 1);
+INSERT INTO tb_task (id, description, question_Count, approval_Count, weight, due_Date) VALUES (4, 'Create a simple page using only HTML', 5, 4, 1.0, TIMESTAMP WITH TIME ZONE '2022-11-20T15:00:00Z');
+
+INSERT INTO tb_lessons_done (lesson_id, user_id, offer_id) VALUES (1, 1, 1);
+INSERT INTO tb_lessons_done (lesson_id, user_id, offer_id) VALUES (2, 1, 1);
