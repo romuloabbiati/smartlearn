@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import com.smartgroup.smartlearn.services.exceptions.DatabaseException;
+import com.smartgroup.smartlearn.services.exceptions.ForbiddenException;
 import com.smartgroup.smartlearn.services.exceptions.ResourceNotFoundException;
+import com.smartgroup.smartlearn.services.exceptions.UnauthorizedException;
 
 @ControllerAdvice
 public class ResourceExceptionHandler {
@@ -72,4 +74,19 @@ public class ResourceExceptionHandler {
 		return ResponseEntity.status(status).body(error);
 	}
 	
+	@ExceptionHandler(ForbiddenException.class)
+	public ResponseEntity<OAuthCustomError> forbidden(
+			ForbiddenException exception, 
+			HttpServletRequest request) {
+		OAuthCustomError error = new OAuthCustomError("Forbidden", exception.getMessage());
+		return ResponseEntity.status(HttpStatus.FORBIDDEN).body(error);
+	}
+	
+	@ExceptionHandler(UnauthorizedException.class)
+	public ResponseEntity<OAuthCustomError> unauthorized(
+			UnauthorizedException exception, 
+			HttpServletRequest request) {
+		OAuthCustomError error = new OAuthCustomError("Unauthorized", exception.getMessage());
+		return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(error);
+	}
 }

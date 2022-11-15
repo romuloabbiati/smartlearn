@@ -1,11 +1,10 @@
 package com.smartgroup.smartlearn.services.exceptions;
 
-public class DatabaseException extends RuntimeException {
+public class ForbiddenException extends RuntimeException {
 
 	private static final long serialVersionUID = 1L;
 
-	public DatabaseException(String message) {
+	public ForbiddenException(String message) {
 		super(message);
 	}
-	
 }
